@@ -1,0 +1,18 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Global Marketplace logo">
+  <defs>
+    <linearGradient id="brandGradient" x1="16" y1="16" x2="108" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="12" y="12" width="104" height="104" rx="28" fill="url(#brandGradient)"/>
+
+  <path d="M40 46C40 38.268 46.268 32 54 32H74C81.732 32 88 38.268 88 46V48H82V46C82 42.134 78.866 39 75 39H53C49.134 39 46 42.134 46 46V82C46 85.866 49.134 89 53 89H75C78.866 89 82 85.866 82 82V72H88V82C88 89.732 81.732 96 74 96H54C46.268 96 40 89.732 40 82V46Z" fill="white"/>
+
+  <path d="M74 62H90C92.209 62 94 63.791 94 66V72C94 74.209 92.209 76 90 76H74V62Z" fill="#FBBF24"/>
+
+  <circle cx="88" cy="52" r="10" fill="#FCD34D"/>
+  <path d="M84 52H92" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+  <path d="M88 48V56" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+</svg>
