@@ -1,9 +1,8 @@
 // components/shared/header/index.tsx
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingCart, User } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/constants";
+import Menu from "./menu";
 
 const Header = () => {
   return (
@@ -23,18 +22,7 @@ const Header = () => {
             </span>
           </Link>
         </div>
-
-        <div className="flex items-center gap-2">
-          <Link href="/cart" className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-foreground transition hover:bg-muted">
-            <ShoppingCart className="h-4 w-4" />
-            <span>Cart</span>
-          </Link>
-
-          <Button variant="ghost" className="gap-2">
-            <User className="h-4 w-4" />
-            <span>Sign In</span>
-          </Button>
-        </div>
+        <Menu />
       </div>
     </header>
   );
