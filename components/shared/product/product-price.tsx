@@ -1,8 +1,9 @@
 import { cn } from '@/lib/utils';
 
-const ProductPrice = ({value, className}: {value: number, className?: string}) => {
+const ProductPrice = ({value, className}: {value: number | string, className?: string}) => {
    // Ensure 2 decimal palces
-    const stringValue = value.toFixed(2);
+    const numericValue = typeof value === 'string' ? parseFloat(value) : value;
+    const stringValue = numericValue.toFixed(2);
 
     // Split into integer and decimal parts
     const [integerPart, decimalPart] = stringValue.split('.')

@@ -5,7 +5,7 @@ const ProductList = ({data, title}: {data: Product[]; title?: string}) => {
     return (
         <section className="container mx-auto py-12 px-4 md:px-6">
             <div className="flex justify-between items-end mb-10">
-                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-500 dark:from-white dark:to-gray-400">
+                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
                     {title || "Featured Products"}
                 </h2>
             </div>

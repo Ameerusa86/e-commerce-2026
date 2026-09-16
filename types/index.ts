@@ -1,16 +1,9 @@
-export type Product = {
-  id?: string;
-  name: string;
-  slug: string;
-  category: string;
-  images: string[];
-  brand: string;
-  description: string;
-  stock: number;
-  price: number;
-  rating: number;
+import * as z from "zod";
+import { insertProductSchema } from "@/lib/validators";
+
+export type Product = z.infer<typeof insertProductSchema> & {
+  id: string;
+  rating: string;
   numReviews: number;
-  isFeatured: boolean;
-  banner?: string | null;
-  createdAt?: Date;
+  createdAt: Date;
 };

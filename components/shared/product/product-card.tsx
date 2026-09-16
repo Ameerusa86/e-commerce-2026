@@ -6,7 +6,7 @@ import ProductPrice from "./product-price";
 
 const ProductCard = ({ product }: { product: Product }) => {
     return (
-        <Card className="group relative flex flex-col overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <Card className="flex flex-col overflow-hidden w-full transition-all duration-300 hover:shadow-lg hover:border-primary/50 group">
             <Link href={`/product/${product.slug}`}>
                 <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                     <Image 
@@ -17,7 +17,7 @@ const ProductCard = ({ product }: { product: Product }) => {
                         className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" 
                     />
                     {product.isFeatured && (
-                        <span className="absolute top-3 left-3 bg-background/80 backdrop-blur-md text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm text-foreground">
+                        <span className="absolute top-3 left-3 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-sm shadow-sm uppercase tracking-wide">
                             Featured
                         </span>
                     )}
@@ -25,7 +25,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             </Link>
             
             <CardContent className="flex flex-col flex-1 p-5">
-                <div className="text-xs font-medium text-muted-foreground mb-1 tracking-wider uppercase">
+                <div className="text-xs font-semibold text-muted-foreground mb-1 tracking-wider uppercase">
                     {product.brand}
                 </div>
                 <Link href={`/product/${product.slug}`}>
@@ -33,16 +33,16 @@ const ProductCard = ({ product }: { product: Product }) => {
                         {product.name}
                     </h3>
                 </Link>
-                <div className="mt-auto pt-4 flex items-center justify-between">
+                <div className="mt-auto pt-4 flex items-center justify-between border-t border-border/50">
                     {product.stock > 0 ? (
                         <ProductPrice value={product.price} />
                     ) : (
-                        <p className="text-xl font-extrabold text-destructive">
+                        <p className="text-xl font-bold text-destructive">
                             Out of Stock
                         </p>
                     )}
-                    <div className="flex items-center text-sm font-medium text-amber-500">
-                        <span className="mr-1">★</span> {product.rating}
+                    <div className="flex items-center text-sm font-semibold text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">
+                        <span className="mr-1 text-amber-500">★</span> {product.rating}
                     </div>
                 </div>
             </CardContent>

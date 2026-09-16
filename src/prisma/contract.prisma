@@ -1,0 +1,18 @@
+// use prisma-next
+
+model Product {
+  id           Uuid     @id @default(dbgenerated("gen_random_uuid()"))
+  name         String
+  slug         String   @unique(map: "product_slug_idx")
+  category     String
+  images       String[]
+  brand        String
+  description  String
+  stock        Int
+  price        Decimal  @default("0")
+  rating       Decimal  @default("0")
+  numReviews   Int      @default(0)
+  isFeatured   Boolean  @default(false)
+  banner       String?
+  createdAt    TimestampString(6) @default(now())
+}
