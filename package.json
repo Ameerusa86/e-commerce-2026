@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
+    "@better-auth/prisma-adapter": "^1.7.5",
     "@neondatabase/serverless": "^1.1.0",
     "@prisma/adapter-pg": "^7.10.0",
     "@prisma/client": "^7.10.0",
     "@prisma/orm-postgres": "^8.0.0-rc.9",
+    "better-auth": "^1.7.5",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.2.6",
     "dotenv": "^17.4.2",
@@ -41,7 +43,7 @@
     "bufferutil": "^4.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
-    "prisma": "^7.10.0",
+    "prisma": "^8.0.0-rc.9",
     "tailwindcss": "^4",
     "tsx": "^4.23.13",
     "typescript": "^5"
@@ -50,6 +52,7 @@
     "unrs-resolver@1.12.2": true,
     "esbuild@0.28.2": true,
     "msgpackr-extract@3.0.4": true,
-    "workerd@1.20260704.1": true
+    "workerd@1.20260704.1": true,
+    "@prisma/engines@7.10.0": true
   }
 }

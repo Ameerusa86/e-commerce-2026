@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import UserButton from "./user-button";
 
 const Menu = () => {
   return (
@@ -19,9 +20,7 @@ const Menu = () => {
         <Link href="/cart" className={buttonVariants({ variant: "ghost" })}>
           <ShoppingCart /> Cart
         </Link>
-        <Link href="/sign-in" className={buttonVariants()}>
-          <User /> Sign In
-        </Link>
+        <UserButton />
       </nav>
 
       {/* Mobile */}
@@ -36,9 +35,7 @@ const Menu = () => {
             <Link href="/cart" className={buttonVariants({ variant: "ghost" })}>
               <ShoppingCart /> Cart
             </Link>
-            <Link href="/sign-in" className={buttonVariants()}>
-              <User /> Sign In
-            </Link>
+            <UserButton />
             <SheetDescription></SheetDescription>
           </SheetContent>
         </Sheet>
