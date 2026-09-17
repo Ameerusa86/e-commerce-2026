@@ -14,3 +14,10 @@ export async function getLatestProducts(): Promise<Product[]> {
 
   return convertToPlainObject(data) as unknown as Product[];
 }
+
+// Get single product by slug
+export async function getProductBySlug (slug: string){
+  const data = await db.orm.public.Product.where({slug}).first();
+
+  return data ? convertToPlainObject(data) as unknown as Product : null;
+}
