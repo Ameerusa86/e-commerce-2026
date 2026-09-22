@@ -20,7 +20,7 @@ export function ForgotPasswordForm() {
         setSuccess(false);
 
         try {
-            await (authClient as any).forgetPassword({
+            await authClient.requestPasswordReset({
                 email,
                 redirectTo: "/reset-password",
             }, {
