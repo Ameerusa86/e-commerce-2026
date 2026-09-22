@@ -1,2 +1,2 @@
-import { db } from "./src/prisma/db";
-console.log(Object.keys(db.orm.public.User));
+import { authClient } from "./lib/auth-client.js";
+console.log(Object.keys(authClient));
