@@ -11,6 +11,24 @@ export function formatNumberWithDecimal(num: number): string {
   return decimal ? `${int}.${decimal.padEnd(2, "0")}` : `${int}.00`;
 }
 
+// Format currency
+export const formatCurrency = (amount: number | string | null) => {
+  if (typeof amount === "number") {
+    return new Intl.NumberFormat("en-US", {
+      currency: "USD",
+      style: "currency",
+      minimumFractionDigits: 2,
+    }).format(amount);
+  } else if (typeof amount === "string") {
+    return new Intl.NumberFormat("en-US", {
+      currency: "USD",
+      style: "currency",
+      minimumFractionDigits: 2,
+    }).format(Number(amount));
+  }
+  return "NaN";
+};
+
 // Round number to 2 decimal places
 export function round2(value: number | string) {
   if (typeof value === "number") {
