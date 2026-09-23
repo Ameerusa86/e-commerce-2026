@@ -55,7 +55,7 @@ export async function addItemToCart(data: CartItem) {
       await db.orm.public.Cart.where({ id: cart.id }).update({
         items: cart.items,
         ...calcPrice(cart.items as CartItem[]),
-        updatedAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString() as any,
       });
       
       return {
@@ -68,7 +68,7 @@ export async function addItemToCart(data: CartItem) {
         sessionCartId,
         items: [item],
         ...calcPrice([item]),
-        updatedAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString() as any,
       });
       return {
         success: true,
@@ -112,7 +112,7 @@ export async function removeItemFromCart(productId: string) {
     await db.orm.public.Cart.where({ id: cart.id }).update({
       items: cart.items,
       ...calcPrice(cart.items as CartItem[]),
-      updatedAt: new Date(),
+      updatedAt: new Date().toISOString() as any,
     });
 
     return {
