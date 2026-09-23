@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="w-full border-b border-border bg-background shadow-sm sticky top-0 z-40">
       <div className="w-full bg-primary text-primary-foreground text-sm py-1.5 hidden md:block">
-        <div className="container mx-auto flex justify-between items-center px-4">
+        <div className="wrapper flex justify-between items-center">
           <div className="flex gap-4">
             <span>Corporate Support: +1 (800) 555-0198</span>
             <span className="opacity-75">|</span>
@@ -20,7 +20,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto flex items-center justify-between gap-4 py-4 px-4">
+      <div className="wrapper flex items-center justify-between gap-4 py-4">
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-3">
             <Image
