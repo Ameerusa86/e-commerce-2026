@@ -49,6 +49,7 @@
     "unrs-resolver@1.12.2": true,
     "esbuild@0.28.2": true,
     "msgpackr-extract@3.0.4": true,
-    "workerd@1.20260704.1": true
+    "workerd@1.20260704.1": true,
+    "bufferutil@4.1.0": true
   }
 }
