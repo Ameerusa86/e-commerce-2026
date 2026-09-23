@@ -4,10 +4,13 @@ import ProductPrice from "@/components/shared/product/product-price"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { getProductBySlug } from "@/lib/actions/product.actions"
+import { getMyCart } from "@/lib/actions/cart.actions"
+import AddToCart from "@/components/shared/product/add-to-cart"
 
 const ProductDetailsPage = async({ params }: { params: Promise<{slug:string}> })=>{
     const resolvedParams = await params
     const product = await getProductBySlug(resolvedParams.slug)
+    const cart = await getMyCart()
 
     if (!product) {
         notFound()
@@ -58,9 +61,19 @@ const ProductDetailsPage = async({ params }: { params: Promise<{slug:string}> })
              </div>
              
              {product.stock > 0 && (
-               <Button size="lg" className="w-full mt-2 text-lg">
-                 Add to Cart
-               </Button>
+               <div className="w-full mt-2">
+                 <AddToCart 
+                   cart={cart}
+                   item={{
+                     productId: product.id,
+                     name: product.name,
+                     slug: product.slug,
+                     price: String(product.price),
+                     qty: 1,
+                     image: product.images[0]
+                   }} 
+                 />
+               </div>
              )}
           </div>
 

@@ -75,3 +75,18 @@ model Verification {
 
   @@map("verification")
 }
+
+model Cart {
+  id            String   @id @default(uuid())
+  sessionCartId String
+  items         Json     @default("[]")
+  itemsPrice    Decimal  @default("0")
+  shippingPrice Decimal  @default("0")
+  taxPrice      Decimal  @default("0")
+  totalPrice    Decimal  @default("0")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime
+  
+  userId        String?
+  user          User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
