@@ -195,8 +195,11 @@
               "createdAt": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "kind": "scalar"
+                  "codecId": "pg/timestamp-string@1",
+                  "kind": "scalar",
+                  "typeParams": {
+                    "precision": 6
+                  }
                 }
               },
               "id": {
@@ -251,8 +254,11 @@
               "updatedAt": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "kind": "scalar"
+                  "codecId": "pg/timestamp-string@1",
+                  "kind": "scalar",
+                  "typeParams": {
+                    "precision": 6
+                  }
                 }
               },
               "userId": {
@@ -882,13 +888,16 @@
             "cart": {
               "columns": {
                 "createdAt": {
-                  "codecId": "pg/timestamptz-temporal@1",
+                  "codecId": "pg/timestamp-string@1",
                   "default": {
                     "expression": "now()",
                     "kind": "function"
                   },
-                  "nativeType": "timestamptz",
-                  "nullable": false
+                  "nativeType": "timestamp",
+                  "nullable": false,
+                  "typeParams": {
+                    "precision": 6
+                  }
                 },
                 "id": {
                   "codecId": "pg/text@1",
@@ -946,9 +955,12 @@
                   "nullable": false
                 },
                 "updatedAt": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "nativeType": "timestamptz",
-                  "nullable": false
+                  "codecId": "pg/timestamp-string@1",
+                  "nativeType": "timestamp",
+                  "nullable": false,
+                  "typeParams": {
+                    "precision": 6
+                  }
                 },
                 "userId": {
                   "codecId": "pg/text@1",
@@ -1314,7 +1326,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "f94dc386a5891d9bb21b22f81922980aabd5ce0d13bee452b2af7396ed59790e"
+    "storageHash": "93ec3a8d1a931e5f747a7c94b98ac232f07f934ef0bcb46006fb7a70dded549b"
   },
   "execution": {
     "executionHash": "9b6e98619ec34408e3a81215597ed2f2acf5b1b45f87e74d0ab58811c50e36bb",

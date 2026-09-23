@@ -55,7 +55,7 @@ export async function addItemToCart(data: CartItem) {
       await db.orm.public.Cart.where({ id: cart.id }).update({
         items: cart.items,
         ...calcPrice(cart.items as CartItem[]),
-        updatedAt: new Date(),
+        updatedAt: new Date().toISOString(),
       });
       
       return {
@@ -68,7 +68,7 @@ export async function addItemToCart(data: CartItem) {
         sessionCartId,
         items: [item],
         ...calcPrice([item]),
-        updatedAt: new Date(),
+        updatedAt: new Date().toISOString(),
       });
       return {
         success: true,
@@ -76,6 +76,7 @@ export async function addItemToCart(data: CartItem) {
       };
     }
   } catch (error) {
+    console.error("Error adding to cart:", error);
     return {
       success: false,
       message: "Failed to add item to cart",
