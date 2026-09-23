@@ -1,6 +1,7 @@
 "use server";
 
 import { cookies } from "next/headers";
+import { revalidatePath } from "next/cache";
 import { SESSION_CART_ID } from "../constants";
 import { CartItem, Cart } from "@/types";
 import { db } from "@/src/prisma/db";
@@ -57,6 +58,7 @@ export async function addItemToCart(data: CartItem) {
         ...calcPrice(cart.items as CartItem[]),
         updatedAt: new Date().toISOString() as any,
       });
+      revalidatePath("/cart");
       
       return {
         success: true,
@@ -70,6 +72,7 @@ export async function addItemToCart(data: CartItem) {
         ...calcPrice([item]),
         updatedAt: new Date().toISOString() as any,
       });
+      revalidatePath("/cart");
       return {
         success: true,
         message: "Item added to cart",
@@ -114,12 +117,14 @@ export async function removeItemFromCart(productId: string) {
       ...calcPrice(cart.items as CartItem[]),
       updatedAt: new Date().toISOString() as any,
     });
+    revalidatePath("/cart");
 
     return {
       success: true,
       message: `${existItem.name} was removed from cart`,
     };
   } catch (error) {
+    console.error("Error removing from cart:", error);
     return {
       success: false,
       message: "Failed to remove item from cart",
