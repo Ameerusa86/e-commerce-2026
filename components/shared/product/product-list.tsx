@@ -3,7 +3,7 @@ import ProductCard from './product-card';
 
 const ProductList = ({data, title}: {data: Product[]; title?: string}) => {
     return (
-        <section className="container mx-auto py-12 px-4 md:px-6">
+        <section className="py-12">
             <div className="flex justify-between items-end mb-10">
                 <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
                     {title || "Featured Products"}
