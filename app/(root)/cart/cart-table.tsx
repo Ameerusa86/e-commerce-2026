@@ -58,48 +58,50 @@ export default function CartTable({ cart }: { cart?: Cart | null }) {
                         <span className="px-2">{item.name}</span>
                       </Link>
                     </TableCell>
-                    <TableCell className="flex-center gap-2">
-                      <Button
-                        disabled={isPending}
-                        variant="outline"
-                        type="button"
-                        onClick={() =>
-                          startTransition(async () => {
-                            const res = await removeItemFromCart(
-                              item.productId
-                            );
-                            if (!res.success) {
-                              console.error(res.message);
-                            }
-                          })
-                        }
-                      >
-                        {isPending ? (
-                          <Loader className="w-4 h-4 animate-spin" />
-                        ) : (
-                          <Minus className="w-4 h-4" />
-                        )}
-                      </Button>
-                      <span>{item.qty}</span>
-                      <Button
-                        disabled={isPending}
-                        variant="outline"
-                        type="button"
-                        onClick={() =>
-                          startTransition(async () => {
-                            const res = await addItemToCart(item);
-                            if (!res.success) {
-                              console.error(res.message);
-                            }
-                          })
-                        }
-                      >
-                        {isPending ? (
-                          <Loader className="w-4 h-4 animate-spin" />
-                        ) : (
-                          <Plus className="w-4 h-4" />
-                        )}
-                      </Button>
+                    <TableCell className="text-center">
+                      <div className="flex items-center justify-center gap-2">
+                        <Button
+                          disabled={isPending}
+                          variant="outline"
+                          type="button"
+                          onClick={() =>
+                            startTransition(async () => {
+                              const res = await removeItemFromCart(
+                                item.productId
+                              );
+                              if (!res.success) {
+                                console.error(res.message);
+                              }
+                            })
+                          }
+                        >
+                          {isPending ? (
+                            <Loader className="w-4 h-4 animate-spin" />
+                          ) : (
+                            <Minus className="w-4 h-4" />
+                          )}
+                        </Button>
+                        <span>{item.qty}</span>
+                        <Button
+                          disabled={isPending}
+                          variant="outline"
+                          type="button"
+                          onClick={() =>
+                            startTransition(async () => {
+                              const res = await addItemToCart(item);
+                              if (!res.success) {
+                                console.error(res.message);
+                              }
+                            })
+                          }
+                        >
+                          {isPending ? (
+                            <Loader className="w-4 h-4 animate-spin" />
+                          ) : (
+                            <Plus className="w-4 h-4" />
+                          )}
+                        </Button>
+                      </div>
                     </TableCell>
                     <TableCell className="text-right">
                       ${item.price}
